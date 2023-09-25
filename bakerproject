@@ -1,0 +1,60 @@
+
+#define generate recipe to take in parameters for flour, water, salt, yeast, and type of bread 
+def generate_recipe (flour, water, salt, yeast, breadName):
+            print("Your", breadName, "Recipe\n-----------------------")
+            print("Flour       ", flour, "grams")   
+            print("Water       ", water, "grams") 
+            print("Salt        ", salt, "grams")
+            print("Yeast       ", yeast, "grams")
+
+
+#define bake function which will calculate how much ingredients are needed based off 
+#the amount of flour inputted by the user 
+def bake(bread, flour):
+    if (bread == "1"):
+        water = (flour * 0.65)
+        salt = (flour * 0.02)
+        yeast = (flour * 0.01)
+        breadName = "Pizza Dough"
+        return water, salt, yeast, breadName
+    
+
+    elif (bread == "2"):
+        water = flour * 0.66
+        salt = flour * 0.02
+        yeast = flour * 0.012
+        breadName = "White Bread"
+        return water, salt, yeast, breadName
+
+    elif (bread == "3"):
+        water = flour
+        salt = flour * 0.03
+        yeast = flour * 0.1
+        breadName = "Artisan Loaf"
+        return water, salt, yeast, breadName
+
+#if user inputs a value other than 1, 2, 3, need to tell user selection was invalid 
+    else:
+        print ("Invalid selection")
+        print ("-1")
+
+
+#print out menu to give user options for bread 
+if __name__ == "__main__":
+    print("\n~~~Menu~~~")
+    print("Pizza Dough (1)")
+    print("White Bread (2)")
+    print("Artisan Bread (3)")
+
+#ask user what kind of bread they want to make 
+bread = input("Which type of bread would you like to make?\n1, 2 or 3?: ")
+
+#ask how much flour user has to make the bread 
+flour = float(input("How many grams of flour do you have?: "))
+
+#call the generate recipe function 
+#/* BEGIN CODE FROM SOURCE: previous student */
+#previous student helped me call function by adding []
+generate_recipe(flour, bake(bread, flour)[0], bake(bread, flour)[1], bake(bread, flour)[2], bake(bread, flour)[3])
+#/* END CODE FROM SOURCE: previous student */
+
